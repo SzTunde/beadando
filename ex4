@@ -1,6 +1,6 @@
 import string 
 
-def piglatin(str):
+def topiglatin(str):
     str=str.split()
     s=''
     for word in str:
@@ -14,3 +14,6 @@ def piglatin(str):
 
 
 print(piglatin('The quick brown fox.'))
+
+
+def frompiglatin(str):
