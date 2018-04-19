@@ -17,3 +17,17 @@ print(piglatin('The quick brown fox.'))
 
 
 def frompiglatin(str):
+    str=str.split()
+    for word in str:
+        s=''
+        for i in range(len(word)-1,0,-1):
+            if word[i]=='y':
+                g=i
+                break
+        for j in range(len(word)):
+            if word[j] not in string.punctuation:
+                h=i
+                break
+        s+=word[:h]+word[g-2]+word[h:g-2]+' '
+    return s
+            
