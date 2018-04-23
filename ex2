@@ -1,7 +1,11 @@
 def szrv(lst,b1,b2):
     s=0
-    for i in range(len(lst)-1,-1,-1):
-        s=s+(b1**i)*int(lst[i])
+    ls0=[]
+    for k in range(len(lst)-1,-1,-1):
+        g=b1**k
+        ls0.append(g)
+    for i in range(0,len(lst)):
+        s = s + ls0[i]*int(lst[i])
     str1=''
     while s!=0:
         e=s%b2
@@ -13,6 +17,10 @@ def szrv(lst,b1,b2):
     str2=list(str2)
     return str2
 
-ls=['1','0','1','1','0','1','0','0','1','1']
-ls2=['7','2','3']
-print(szrv(ls2,10,8))
+
+lsa=['1','3',"1"]#10
+lsb=['1', '0', '0', '0', '0', '0', '1', '1']#2
+ls1a=list('10000011')#10
+ls1b=list('86')
+print(szrv(ls1a,2,16))
+print(szrv(lsa,10,2))
