@@ -1,4 +1,5 @@
-def szrv(lst,b1,b2):
+def számrendszerváltó(lst,b1,b2):
+    '''b1-ből 10-esbe'''
     s=0
     ls0=[]
     for k in range(len(lst)-1,-1,-1):
@@ -6,6 +7,7 @@ def szrv(lst,b1,b2):
         ls0.append(g)
     for i in range(0,len(lst)):
         s = s + ls0[i]*int(lst[i])
+    '''10-esből b2-be'''
     str1=''
     while s!=0:
         e=s%b2
@@ -22,5 +24,5 @@ lsa=['1','3',"1"]#10
 lsb=['1', '0', '0', '0', '0', '0', '1', '1']#2
 ls1a=list('10000011')#10
 ls1b=list('86')
-print(szrv(ls1a,2,16))
-print(szrv(lsa,10,2))
+print(számrendszerváltó(ls1a,2,16))
+print(számrendzserváltó(lsa,10,2))
