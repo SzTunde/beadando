@@ -1,33 +1,35 @@
-import string 
+import string
 
 def topiglatin(str):
     str=str.split()
     s=''
     for word in str:
-        if word[-1] not in string.punctuation:
-            e=word[0]
-            s=s+word[1:]+e+'ay'+' '
-        else:
-            f=word[0]
-            s=s+word[1:-1]+f+'ay'+word[-1]+' '
+        for j in range(len(word)):
+            if word[j] not in string.punctuation:
+                e=j
+                break
+        for i in range(len(word)-1,0,-1):
+            if word[i] not in string.punctuation:
+                f=i
+                break
+        s=s+word[:e]+word[e+1:f+1]+word[e]+'ay'+word[f+1:]+' '
     return s
 
 
-print(piglatin('The quick brown fox.'))
+print(topiglatin('...The... quick ...brown... fox.'))
 
 
 def frompiglatin(str):
     str=str.split()
+    s = ''
     for word in str:
-        s=''
-        for i in range(len(word)-1,0,-1):
-            if word[i]=='y':
-                g=i
-                break
+        g=word.rfind('y')
         for j in range(len(word)):
             if word[j] not in string.punctuation:
-                h=i
+                h=j
                 break
-        s+=word[:h]+word[g-2]+word[h:g-2]+' '
+        s+=word[:h]+word[g-2]+word[h:g-2]+word[g+1:]+' '
     return s
+
+print(frompiglatin(topiglatin('...The... quick ...brown... fox.')))
             
