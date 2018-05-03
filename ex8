@@ -2,4 +2,6 @@ def LongestCommonSubsequence(str1,str2):
 
 str1='There are two apples on the table.'
 str2='Give me two apples, there are some on the table.'
+str3='956243253412345341244'
+str4='123563987451234876'
 print(LongestCommonSubsequence(str1,str2)
