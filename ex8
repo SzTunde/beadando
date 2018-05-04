@@ -1,7 +1,36 @@
-def LongestCommonSubsequence(str1,str2):
+def lcs(str1, str2):
+    len1=len(str1)
+    len2=len(str2)
+    M = [[0 for x in range(len2 + 1)] for x in range(len1 + 1)]
+    for i in range(len1 + 1):
+        for j in range(len2 + 1):
+            if i == 0 or j == 0:
+                M[i][j] = 0
+            elif str1[i - 1] == str2[j - 1]:
+                M[i][j] = M[i - 1][j - 1] + 1
+            else:
+                M[i][j] = max(M[i - 1][j], M[i][j - 1])
+    idx = M[len1][len2]
+    lcs = [""] * (idx + 1)
+    lcs[idx] = ""
+    i = len1
+    j = len2
+    while i > 0 and j > 0:
+        if str1[i - 1] == str2[j - 1]:
+            lcs[idx - 1] = str1[i - 1]
+            i -= 1
+            j -= 1
+            idx -= 1
+        elif M[i - 1][j] > M[i][j - 1]:
+            i -= 1
+        else:
+            j -= 1
+    lcs2=''
+    for k in lcs:
+        lcs2+=k
+    return lcs2
 
-str1='There are two apples on the table.'
-str2='Give me two apples, there are some on the table.'
-str3='956243253412345341244'
-str4='123563987451234876'
-print(LongestCommonSubsequence(str1,str2)
+
+str1 = "ABXCYDEFZGH"
+str2 = "XIJKLYZ"
+print(lcs(str1,str2))
