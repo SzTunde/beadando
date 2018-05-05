@@ -25,10 +25,7 @@ def lcs(str1, str2):
             i -= 1
         else:
             j -= 1
-    lcs2=''
-    for k in lcs:
-        lcs2+=k
-    return lcs2
+    return ''.join(lcs)
 
 
 str1 = "ABXCYDEFZGH"
