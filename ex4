@@ -16,7 +16,7 @@ def topiglatin(str):
     return s
 
 
-print(topiglatin('...The... quick ...brown... fox.'))
+#print(topiglatin('...The... quick ...brown... fox.'))
 
 
 def frompiglatin(str):
@@ -31,5 +31,21 @@ def frompiglatin(str):
         s+=word[:h]+word[g-2]+word[h:g-2]+word[g+1:]+' '
     return s
 
-print(frompiglatin(topiglatin('...The... quick ...brown... fox.')))
+#print(frompiglatin(topiglatin('...The... quick ...brown... fox.')))
             
+def main():
+        t=input('Do you want to translate your text to piglatin or back from piglatin?(Answer with "to" or "back")')
+        z = input('your text:')
+        if t=='to':
+            print(topiglatin(z))
+            u=input('Do you want to change it back?("yes" or "no")')
+            if u=='yes':
+                print(frompiglatin(topiglatin(z)))
+            else:
+                print('Bye!')
+        elif t=='back':
+            print(frompiglatin(z))
+        else:
+            print('Error,your first response was not suitable,try again.')
+
+main()
