@@ -4,6 +4,7 @@ def topiglatin(str):
     str=str.split()
     s=''
     for word in str:
+        word=word.lower()
         for j in range(len(word)):
             if word[j] not in string.punctuation:
                 e=j
@@ -35,8 +36,8 @@ def frompiglatin(str):
             
 def main():
         t=input('Do you want to translate your text to piglatin or back from piglatin?(Answer with "to" or "back")')
-        z = input('your text:')
         if t=='to':
+            z = input('your text:')
             print(topiglatin(z))
             u=input('Do you want to change it back?("yes" or "no")')
             if u=='yes':
@@ -44,8 +45,9 @@ def main():
             else:
                 print('Bye!')
         elif t=='back':
-            print(frompiglatin(z))
+            y = input('your text:')
+            print(frompiglatin(y))
         else:
-            print('Error,your first response was not suitable,try again.')
+            print('Error,your response was not suitable,try again.')
 
 main()
