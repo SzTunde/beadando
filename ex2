@@ -13,9 +13,9 @@ def számrendszerváltó(lst,b1,b2):
         e=s%b2
         str1=str1+str(e)
         s=s//b2
-    str2=''
-    for j in range(len(str1)-1,-1,-1):
-        str2+=str(str1[j])
-    ls2=list(str2)
-    return ls2
-
+    str2=str1[::-1]
+    return list(str2)
+    
+#ls1a=list('10000011')#2
+#ls1b=list('83')#16
+#print(számrendszerváltó(ls1a,2,16))
